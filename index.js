@@ -1,7 +1,6 @@
 const fs = require('fs');
 const http = require('http');
 const Canvas = require('canvas');
-const config = require("./config.json");
 const moment = require('moment');
 
 
@@ -54,7 +53,7 @@ client.loadCommands();
 client.on('ready', () => {
   console.log(`READY Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
   client.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`, "Ready", "event");
-  client.user.setActivity(`with ichika`);
+  client.user.setActivity(`Work IN PROGRESS`);
 });
 
 client.on('error', error => {
@@ -75,28 +74,7 @@ client.on('guildDelete', guild => {
 
 
 
-client.on("guildMemberAdd", (member) => { // Check out previous chapter for information about this event
-let guild = member.guild;
-let date = member.user.createdAt;
-const newDate = date.toLocaleDateString();
-let memberTag = member.user.tag;
-if(guild.systemChannel){
-  
-   
-    guild.systemChannel.send(new Discord.RichEmbed() 
-    .setTitle("A new user joined" ) 
-    .setDescription(memberTag + " has joined the guild") 
-    .setThumbnail(member.user.displayAvatarURL)
-    .setFooter(member.guild.owner)
-  .addField("Welcome to", guild.name )
-  .addField("Created at:", moment(member.user.createdAt).format('MMMM Do YYYY, h:mm:ss a') , true)
-  .addField("Joined Server", moment(member.joinedAt).format('MMMM Do YYYY, h:mm:ss a'), true)
-    .addField("Members now", member.guild.memberCount) 
-    .setTimestamp()
-                      
-    );
-}
-});
+
 
 client.on('message', message => {
   try {
@@ -126,7 +104,7 @@ client.on('message', message => {
                   if (result === undefined) {
                     embed
                       .setTitle("Pokemon Not Found")
-                      .setDescription("Please contact the owner ichika to add this Pokemon to the database.");
+                      .setDescription("Please contact the POKE DEVELOPER ichika to add this Pokemon to the database.");
                       
                     return message.channel.send(embed);
                   }
@@ -210,9 +188,10 @@ client.on('message', message => {
     if (message.content.startsWith("<@" + client.user.id + ">")) {
       prefix = "<@" + client.user.id + ">";
     }
-    else if (message.content.startsWith("<@!" + client.user.id + ">")) {
-      prefix = "<@!" + client.user.id + ">";
-    } else {
+    else if (message.content.startsWith("p!")) {
+      prefix = "p!";
+    } 
+    else {
       return;
     }
     
@@ -264,4 +243,4 @@ client.log = async (content, title, type) => {
   }
 };
 
-client.login(process.env.BOT_TOKEN);
+client.login(process.env.TOKEN);
