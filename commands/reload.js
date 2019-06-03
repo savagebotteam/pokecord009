@@ -9,7 +9,7 @@ module.exports.run = async (client, message, args) => {
   if (!owners.includes(message.author.id)) {
     embed
       .setTitle("Permission Denied")
-      .setDescription("You do not have permission to use this command. It is meant for other users.");
+      .setDescription("You do not have permission to use this command. Only owner Can use this");
     
     return message.channel.send(embed);
   }

@@ -53,7 +53,7 @@ client.loadCommands();
 client.on('ready', () => {
   console.log(`READY Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`);
   client.log(`Bot has started, with ${client.users.size} users, in ${client.channels.size} channels of ${client.guilds.size} guilds.`, "Ready", "event");
-  client.user.setActivity(`Work IN PROGRESS`);
+  client.user.setActivity(`${client.users.size} users | ${client.guilds.size} servers | p!help`);
 });
 
 client.on('error', error => {
@@ -103,8 +103,8 @@ client.on('message', message => {
                   
                   if (result === undefined) {
                     embed
-                      .setTitle("Pokemon Not Found")
-                      .setDescription("Please contact the POKE DEVELOPER ichika to add this Pokemon to the database.");
+                      .setTitle("Pokemon Found")
+                      .setDescription("Upvote Me On DBL,invite To other Servers !");
                       
                     return message.channel.send(embed);
                   }
