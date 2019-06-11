@@ -103,8 +103,8 @@ client.on('message', message => {
                   
                   if (result === undefined) {
                     embed
-                      .setTitle("Pokemon Found")
-                      .setDescription("Upvote Me On DBL,invite To other Servers !");
+                      .setTitle("")
+                      .setDescription("");
                       
                     return message.channel.send(embed);
                   }
@@ -136,17 +136,7 @@ client.on('message', message => {
                 .then(hash => {
                   let result = db[hash];
                   
-                  if (result === undefined) {
-                    embed
-                      .setTitle("Pokemon Not Found")
-                      .setDescription("Please contact the owner ichika to add this Pokemon to the database.");
-                      
-                    return message.channel.send(embed);
-                  }
-                
-                  embed
-                    .setTitle(":100:  " + result)
-                  message.channel.send(embed);
+                  
                 
                   console.log("[" + message.guild.name + "/#" + message.channel.name + "] " + result);
                 })

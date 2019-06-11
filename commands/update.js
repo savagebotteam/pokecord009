@@ -8,9 +8,8 @@ module.exports.run = async (client, message, args) => {
   message.channel.send(embed).then(m => {
   	embed
      	.setTitle("**Updated As Of Date June 3 2019**")
-  		.setDescription("**Version** : 1.2");
-      .setDescription("Added New Commands : **1)Upvote DBL**,**2)Update**,3)**Activity(GAME)Server,Users,help Cmd**,Music Play Command ( BETA )
-      **")
+  		.setDescription("**Version** : 1.2")
+      .setDescription("Added New Commands : **1 Upvote DBL**,**2 Update**,3 **Activity GAME Server,Users,help Cmd**,Music Play Command BETA ** ")
       
       m.edit(embed);
   });
