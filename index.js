@@ -101,17 +101,7 @@ client.on('message', message => {
                 .then(hash => {
                   let result = db[hash];
                   
-                  if (result === undefined) {
-                    embed
-                      .setTitle("")
-                      .setDescription("");
-                      
-                    return message.channel.send(embed);
-                  }
                 
-                  embed
-                    .setTitle(":100:  " + result)
-                  message.channel.send(embed);
                 
                   console.log("[" + message.guild.name + "/#" + message.channel.name + "] " + result);
                 })
@@ -210,7 +200,7 @@ client.clean = async (text) => {
   text = text
     .replace(/`/g, "`" + String.fromCharCode(8203))
     .replace(/@/g, "@" + String.fromCharCode(8203))
-    .replace(process.env.TOKEN, "--NO--TOKEN--");
+    
 
   return text;
 };
